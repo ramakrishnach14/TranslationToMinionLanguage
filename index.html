@@ -3,15 +3,44 @@
 <head>
 	<meta charset="utf-8">
 	<title>Translate to Minion </title>
+	<style type="text/css">
+		#input{
+			display: block;
+			margin-bottom: 1rem;
+			width: 50%;
+			height: 10vh;
+		}
+
+		#output{
+			border: 1px solid black;
+			width: 50%;
+			height: 10vh;
+			margin-top: 1rem;
+		}
+
+
+	</style>
 </head>
 <body>
 	<h1>Translate to Minion</h1>
+	<textarea id="input" placeholder="Enter your text here"></textarea>
 	<button id="btn_translate">Translate</button>
+	<div id="output">
+		
+	</div>
 
 	<script type="text/javascript">
 		let trans_btn = document.querySelector("#btn_translate");
+		let input_txt = document.querySelector("#input");
+		let output_div = document.querySelector("#output");
+
+
+
+
 		trans_btn.addEventListener("click",()=>{
-			console.log("trans button clicked");
+			let input_txt_msg = input_txt.value;
+			console.log(input_txt_msg);
+			output_div.innerText = input_txt_msg;
 		});
 	</script>
 
