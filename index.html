@@ -35,12 +35,24 @@
 		let output_div = document.querySelector("#output");
 
 
+		let server_url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json";
+
+		function urlConstructor(text){
+			return server_url+"?text="+text;
+		}
+
 
 
 		trans_btn.addEventListener("click",()=>{
+
 			let input_txt_msg = input_txt.value;
-			console.log(input_txt_msg);
-			output_div.innerText = input_txt_msg;
+			console.log(urlConstructor(input_txt_msg))
+			fetch(urlConstructor(input_txt_msg))
+			.then((response)=> response.json())
+			.then((json)=>{console.log(json)
+				output_div.innerText = json.contents.text;
+
+			});
 		});
 	</script>
 
